@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sqlite3
 # here is  some code to manage flashcards using SQLite
 # This code allows you to create decks, add cards, and manage flashcards.
