@@ -103,7 +103,7 @@ def main():
             print(">>>> Good session. See you next time, memory master. 💪!!!")
             break
         elif result == "switch":
-            print(">>>> Switching to create mode... (This would integrate with Gilbert's code)")
+            print(">>>> Switching to create mode... ")
             break
         elif result == "continue":
             continue_choice = input(">>>> Would you like to revise another deck? (y/n): ").strip().lower()
