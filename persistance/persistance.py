@@ -1,5 +1,4 @@
 import sqlite3
-
 class DataHandler:
     def __init__(self, db_path='flashcards.db'):
         self.db_path = db_path
