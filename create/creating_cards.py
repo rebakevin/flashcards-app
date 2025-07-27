@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-from utils.persistance import DataHandler
 from utils.exit import check_for_exit
-
-data_handler = DataHandler()
+from utils.persistance import data_handler
+from utils.draw_line import draw_line
 
 def creating_cards():
     # This while loop will continously prompt the user to create a new deck or use an existing one.
@@ -34,7 +33,7 @@ def creating_cards():
             check_for_exit(answer)
             
             data_handler.create_card(question, answer, deck_id)
-            print("-" * 30)
+            draw_line()
 
 if __name__ == "__main__":
     creating_cards()
