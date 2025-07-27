@@ -1,4 +1,4 @@
-from utils.data import DataHandler
+from utils.persistance import DataHandler
 
 data_handler = DataHandler()
 
