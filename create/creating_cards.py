@@ -1,16 +1,40 @@
-from utils.data import DataHandler
+#!/usr/bin/env python3
+
+from utils.persistance import DataHandler
+from utils.exit import check_for_exit
 
 data_handler = DataHandler()
 
-def create_card():
-    print('Use a new deck')
-    deck_name = input('Deck name: ')
-    
-    existing_decks = [deck[1] for deck in data_handler.get_all_decks()]
-    
-    if(deck_name in existing_decks):
-        print(f'Using {deck_name}')
-        return
-    else:
-        data_handler.create_deck(deck_name)
-        return None
+def creating_cards():
+    # This while loop will continously prompt the user to create a new deck or use an existing one.
+    while True:
+        print("\nAvailable decks:")
+        for deck in data_handler.get_all_decks():
+            print(f"{deck[0]} - {deck[1]}")
+            
+        deck_choice = input("Choose a deck or create a new one: ").strip()
+        check_for_exit(deck_choice)
+        
+        if deck_choice.lower() in ["cancel", "switch"]:
+            return
+        
+        data_handler.create_deck(deck_choice)
+        deck_id = data_handler.get_deck_by_name(deck_choice)[0]
+
+        # This while loop will help the user to keep creating as many cards as they want
+        while True:
+            print()
+            question = input(f"Add new question in '{deck_choice}': ")
+            check_for_exit(question)
+            
+            if question.lower() in ["cancel", "switch"]:
+                break
+            
+            answer = input("Provide the answer: ")
+            check_for_exit(answer)
+            
+            data_handler.create_card(question, answer, deck_id)
+            print("-" * 30)
+
+if __name__ == "__main__":
+    creating_cards()
