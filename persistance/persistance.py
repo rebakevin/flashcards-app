@@ -225,3 +225,7 @@ class DataHandler:
             raise e
         finally:
             conn.close()
+
+
+# Initialize handler            
+data_handler = DataHandler()
