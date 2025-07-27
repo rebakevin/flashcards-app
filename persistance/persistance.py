@@ -1,5 +1,4 @@
 import sqlite3
-
 class DataHandler:
     def __init__(self, db_path='flashcards.db'):
         self.db_path = db_path
@@ -225,3 +224,7 @@ class DataHandler:
             raise e
         finally:
             conn.close()
+
+
+# Initialize handler            
+data_handler = DataHandler()

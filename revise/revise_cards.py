@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from utils.persistance import data_handler
+from persistance.persistance import data_handler
 from utils.draw_line import draw_line
 from utils.exit import check_for_exit
+from utils.cancel_or_switch import cancel_or_switch
 
 def revise_cards():
     """Main function for revising cards using DataHandler"""
@@ -13,6 +14,8 @@ def revise_cards():
         
     deck = input('Choose deck to revise: ')
     selected_deck = data_handler.get_deck_by_name(deck)
+    if(deck in ['cancel', 'switch']):
+        return cancel_or_switch(deck)
     
     if selected_deck not in decks:
         print()
@@ -24,7 +27,8 @@ def revise_cards():
         
         while True:
             cards = data_handler.get_all_cards(selected_deck[0])
-            revising_algorithm(cards)
+            result = revising_algorithm(cards)
+            return cancel_or_switch(result)
 
 def revising_algorithm(cards):
     number_of_cards_revised = 0
@@ -45,10 +49,9 @@ def revising_algorithm(cards):
             user_input = input("").strip()
             check_for_exit(user_input)
             
-            if user_input.lower() == "cancel":
-                return
-            elif user_input.lower() == "switch":
-                return
+            if user_input.lower() in ["cancel", "switch"]:
+                return cancel_or_switch(user_input)
+            
             elif user_input.lower() == "r":
                 print(f"Answer: {answer}")
                 draw_line()

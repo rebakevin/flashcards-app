@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+from persistance.persistance import data_handler
 from utils.exit import check_for_exit
-from utils.persistance import data_handler
 from utils.draw_line import draw_line
+from utils.cancel_or_switch import cancel_or_switch
 
 def creating_cards():
     # This while loop will continously prompt the user to create a new deck or use an existing one.
@@ -13,9 +14,8 @@ def creating_cards():
             
         deck_choice = input("Choose a deck or create a new one: ").strip()
         check_for_exit(deck_choice)
-        
         if deck_choice.lower() in ["cancel", "switch"]:
-            return
+            return cancel_or_switch(deck_choice)
         
         data_handler.create_deck(deck_choice)
         deck_id = data_handler.get_deck_by_name(deck_choice)[0]
@@ -25,11 +25,12 @@ def creating_cards():
             print()
             question = input(f"Add new question in '{deck_choice}': ")
             check_for_exit(question)
-            
             if question.lower() in ["cancel", "switch"]:
-                break
+                return cancel_or_switch(question)
             
             answer = input("Provide the answer: ")
+            if answer.lower() in ["cancel", "switch"]:
+                return cancel_or_switch(answer)
             check_for_exit(answer)
             
             data_handler.create_card(question, answer, deck_id)
