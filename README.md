@@ -1,5 +1,9 @@
 # Flashcards App
 
+- [Canva slides presentations](https://www.canva.com/design/DAGuZczWVRc/ZMxGSdx6RhIzyRGwfOZV5A/view?utm_content=DAGuZczWVRc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfbe1031387)
+- [Google docs planning](https://docs.google.com/document/d/11sZXK0he8QLltlNNAk2IMiegufP-iLNrABTJahO3L6E/edit?usp=sharing)
+- [User flow diagram](https://www.figma.com/board/tKakUKhqTP3u4VEMns2s0C/Python-Assignment?node-id=0-1&p=f&t=8CTAsTA3qiDRxMDf-0) 
+
 ## Overview
 A terminal-based flashcard application that helps students learn new concepts efficiently using spaced repetition. The app enables users to create and review flashcards for effective long-term memory retention.
 
