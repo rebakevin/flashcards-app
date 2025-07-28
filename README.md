@@ -1,7 +1,41 @@
-# flashcards-app
+# Flashcards App
 
-The science of memory, one card at a time.
+## Overview
+A terminal-based flashcard application that helps students learn new concepts efficiently using spaced repetition. The app enables users to create and review flashcards for effective long-term memory retention.
 
-## Todo
+## Features
+- Create and manage flashcard decks
+- Review cards with spaced repetition
+- Organize cards by subject
+- Switch between creation and review modes
+- Local data storage in CSV format
 
-[] Deleting a card or a deck
+## How to Run
+1. Install Python 3.x
+2. Navigate to the app directory
+3. Choose your mode:
+   ```bash
+   # Run the app by
+   python3 main.py
+   ```
+4. Follow the on-screen instructions to navigate the app
+5. You can run `generate_dummy_data.py` to generate starter cards if you don't want to start from scratch.
+## Tools Used
+- Python 3.x
+- Terminal interface
+- CSV files for data storage
+- Pure Python implementation
+
+## Project Structure
+- `create/`: Card creation module
+- `revise/`: Card review module
+- `persistance/`: Data storage module
+- `utils/`: Utility functions
+
+## Getting Started
+1. Create new flashcards using the creation module
+2. Review cards using the revision module
+3. Use 'Cancel' or 'Switch' to navigate between modes
+
+## License
+This project is designed for educational purposes and is open source.

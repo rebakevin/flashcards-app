@@ -1,51 +1,53 @@
                             Flashcard Revision Tool
-This Python application is part of a collaborative flashcard system, focusing on revising flashcards interactively. 
-                            
-       Features
--  Deck Selection: Choose from a list of available decks provided by the data handling module.
-- Interactive Revision: View questions one by one, reveal answers with 'R', continue with Enter, or cancel/switch modes.
-- Persistent Data: Uses a DataHandler (from persistance.persistance) to access decks and cards.
-- User-Friendly Commands: Supports 'Cancel' to quit, 'Switch' to change modes, and 'R' to reveal answers.
-                       
-      Prerequisites
-Python 3.x installed
-Custom modules (included in the project):
-persistance/persistance.py (handles data storage and retrieval, developed by team members)
-utils/draw_line.py (formats output with lines)
-utils/exit.py (handles exit conditions)
-utils/cancel_or_switch.py (manages mode switching)
 
-      Installation
+## Overview
+This module is part of the Flashcards App, a terminal-based application designed to help students learn new concepts efficiently using spaced repetition. The `revise_cards.py` script allows users to review and practice their flashcards using a spaced repetition system.
 
-Ensure Python 3.x is installed on your system.
-Clone or download the project folder containing:/project
-├── revise_cards.py
-├── persistance/
-│   └── persistance.py
-└── utils/
-    ├── draw_line.py
-    ├── exit.py
-    └── cancel_or_switch.py
+## Features
+- Review flashcards from existing decks
+- Reveal answers with the 'R' command
+- Progress through cards with Enter key
+- Support for canceling operations or switching to creation mode
+- Graceful error handling for invalid inputs
+- Sequential card review (future enhancement: spaced repetition algorithm)
 
+## Usage
+1. Run the script in your terminal
+   ```bash
+   python3 revise_cards.py
+   ```
+2. Select a deck from the list of available decks
+3. For each card:
+   - View the question
+   - Press 'R' to reveal the answer
+   - Press Enter to move to the next card
+   - Type 'Cancel' to quit
+   - Type 'Switch' to change to creation mode
 
+## File Structure
+- Depends on deck files ([deck_name]_deck.csv) managed by the persistence module
+- Each deck file contains two columns: Question and Answer
+- Files are stored locally in the same directory
 
+## Requirements
+- Python 3.x
+- No external dependencies required
+- Depends on the persistence module for deck management
 
-     How to run
+## Best Practices
+- Review cards regularly (daily recommended)
+- Use spaced repetition for optimal learning
+- Focus on understanding each concept before moving to the next card
+- Keep track of difficult cards for additional practice
 
-Run the script:python3 revise/revise_cards.py
+## Error Handling
+- Invalid deck names will prompt for re-entry
+- Invalid commands will display help message
+- Missing deck files will be handled gracefully
+- Safe handling of file operations to prevent data loss
 
+## Contributing
+This module is part of a larger educational project. Contributions and improvements are welcome!
 
-Select a deck by typing its name from the list displayed (populated by the data handling module).
-For each card:
-View the question.
-Press R to reveal the answer.
-Press Enter to move to the next card.
-Type Cancel to quit or Switch to change modes.
-
-     Notes
-
-Invalid inputs prompt a reminder of valid commands.
-The application exits gracefully when all cards are revised or upon user command.
-This script depends on the data handling module (persistance.persistance) for accessing decks and cards.
-
-
+## License
+This project is designed for educational purposes and is open source.
